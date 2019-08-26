@@ -11,10 +11,10 @@
 -------------------------------------------------------------------
 | No. | 问题 |
 |---- | ---------
-|1  | [什么是VueJS?](#什么是VueJS?) |
-|2  | [VueJS的主要特征](#what-are-the-major-features-of-vuejs) |
-|3  | [VueJS生命周期的主要方法是什么](#what-are-the-lifecycle-methods-of-vuejs)|
-|4  | [什么是条件指令](#what-are-the-conditional-directives)|
+|1  | [什么是VueJS?](#什么是VueJS) |
+|2  | [VueJS的主要特征](#VueJS的主要特征) |
+|3  | [VueJS生命周期的主要方法是什么](#VueJS生命周期的主要方法是什么)|
+|4  | [什么是条件指令](#什么是条件指令)|
 |5  | [What is the difference between v-show and v-if directives](#what-is-the-difference-between-v-show-and-v-if-directives)|
 |6  | [What is the purpose of v-for directive?](#what-is-the-purpose-of-v-for-directive)|
 |7  | [What is vue instance?](#what-is-vue-instance)|
