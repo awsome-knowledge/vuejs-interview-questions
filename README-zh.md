@@ -1,20 +1,20 @@
 # vuejs-interview-questions
 
-English | [简体中文](./README-zh.md)
+简体中文 | [English](./README.md)
 
 
-List of 300 VueJS Interview Questions
+300道VueJS的面试题
 
-> Click :star:if you like the project. Pull Requests are highly appreciated. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
+> Click :star:如果你喜欢这个项目. 非常感谢您的请求. Follow me [@SudheerJonna](https://twitter.com/SudheerJonna) for technical updates.
 
-### Table of Contents
+### 目录
 -------------------------------------------------------------------
-| No. | Questions |
+| No. | 问题 |
 |---- | ---------
-|1  | [What is VueJS](#what-is-vuejs) |
-|2  | [What are the major features of VueJS](#what-are-the-major-features-of-vuejs) |
-|3  | [What are the lifecycle methods of VueJS](#what-are-the-lifecycle-methods-of-vuejs)|
-|4  | [What are the conditional directives](#what-are-the-conditional-directives)|
+|1  | [什么是VueJS?](#什么是VueJS?) |
+|2  | [VueJS的主要特征](#what-are-the-major-features-of-vuejs) |
+|3  | [VueJS生命周期的主要方法是什么](#what-are-the-lifecycle-methods-of-vuejs)|
+|4  | [什么是条件指令](#what-are-the-conditional-directives)|
 |5  | [What is the difference between v-show and v-if directives](#what-is-the-difference-between-v-show-and-v-if-directives)|
 |6  | [What is the purpose of v-for directive?](#what-is-the-purpose-of-v-for-directive)|
 |7  | [What is vue instance?](#what-is-vue-instance)|
@@ -234,24 +234,24 @@ List of 300 VueJS Interview Questions
 |221| [How do you sync current route in vuex store?](#how-do-you-sync-current-route-in-vuex-store)|
 |222| [What are navigation guards in vue router?](#what-are-navigation-guards-in-vue-router)|
 
-1.  ### What is VueJS?
-    **Vue.js** is an open-source, progressive Javascript framework for building user interfaces that aim to be incrementally adoptable. The core library of VueJS is focused on the `view layer` only, and is easy to pick up and integrate with other libraries or existing projects.
-2.  ### What are the major features of VueJS?
-    Below are the some of major features available with VueJS
-    1. **Virtual DOM:** It uses virtual DOM similar to other existing frameworks such as ReactJS, Ember etc. Virtual DOM is a light-weight in-memory tree representation of the original HTML DOM and updated without affecting the original DOM.
-    2. **Components:** Used to create reusable custom elements in VueJS applications.
-    3. **Templates:** VueJS provides HTML based templates that bind the DOM with the Vue instance data
-    4. **Routing:** Navigation between pages is achieved through vue-router
-    5. **Light weight:** VueJS is light weight library compared to other frameworks
-3.  ### What are the lifecycle methods of VueJS?
-    Lifecycle hooks are a window into how the library you’re using works behind-the-scenes. By using these hooks, you will know when your component is created, added to the DOM, updated, or destroyed. Let's look at lifecycle diagram before going to each lifecycle hook in detail,
+1.  ### 什么是VueJS?
+    **Vue.js** 是一个开放源码的渐进式JavaScript框架，用于构建旨在逐步采用的用户界面。VueJS的核心库只关注视图层，并且易于与其他库或现有项目进行收集和集成。
+2.  ### VueJS的主要特征?
+    以下是Vuejs的一些主要功能
+    1. **虚拟DOM:** 它使用的虚拟DOM类似于其他现有框架，如ReactJS、Ember等。虚拟DOM是原始HTML DOM的一种轻型内存树表示，在不影响原始DOM的情况下进行更新。
+    2. **组件:** 用于在VueJS应用程序中创建可重用的自定义元素。
+    3. **模板:** Vuejs提供基于HTML的模板，这些模板将DOM与Vue实例数据绑定在一起。
+    4. **路由:** 通过Vue路由器实现页面间导航
+    5. **轻量级:** 与其他框架相比，Vuejs是轻量级库
+3.  ### VueJS生命周期的主要方法是什么?
+   生命周期钩子是一个窗口，可以让您了解如何在幕后使用库。通过使用这些挂钩，您将知道何时创建、添加到DOM、更新或销毁组件。在详细介绍每个生命周期钩子之前，让我们先看看生命周期图
 
     <img src="https://github.com/sudheerj/vuejs-interview-questions/blob/master/images/vuelifecycle.png" width="400" height="800">
 
-    1. **Creation(Initialization):**
-        Creation Hooks allow you to perform actions before your component has even been added to the DOM. You need to use these hooks if you need to set things up in your component both during client rendering and server rendering. Unlike other hooks, creation hooks are also run during server-side rendering.
+    1. **创建(初始化):**
+        创建挂钩允许您在将组件添加到DOM之前执行操作。如果在客户端呈现和服务器呈现期间都需要在组件中设置内容，则需要使用这些挂钩。与其他钩子不同，创建钩子也在服务器端呈现期间运行。
         1. beforeCreate:
-           This hook runs at the very initialization of your component. hook observes data and initialization events in your component. Here, data is still not reactive and events that occur during the component’s lifecycle have not been set up yet.
+          这个钩子在组件初始化时运行。hook观察组件中的数据和初始化事件。在这里，数据仍然不是反应性的，组件生命周期中发生的事件还没有设置。
         ```javascript
             new Vue({
               data: {
@@ -266,7 +266,7 @@ List of 300 VueJS Interview Questions
                // count is undefined
          ```
         1. created:
-            This hook is invoked when Vue has set up events and data observation. Here, events are active and access to reactive data is enabled though templates have not yet been mounted or rendered.
+            当Vue设置事件和数据观察时调用此钩子。在这里，事件是活动的，虽然还没有加载或呈现模板，但是已经启用了对活动数据的访问。
         ```javascript
           new Vue({
             data: {
@@ -279,11 +279,11 @@ List of 300 VueJS Interview Questions
           })
              // count is: 10
         ```
-        **Note:** Remember that, You will not have access to the DOM or the target mounting element (this.$el) inside of creation hooks
-    2. **Mounting(DOM Insertion):**
-        Mounting hooks are often the most-used hooks and they allow you to access your component immediately before and after the first render.
+        **注意:** 请记住，您将不能访问create hooks内部的DOM或目标挂载元素(this.$el)
+    2. **挂载(DOM插入):**
+        挂载钩子通常是最常用的钩子，它们允许您在第一次呈现之前和之后立即访问组件。
         1. beforeMount:
-            The beforeMount allows you to access your component immediately before and after the first render.
+            beforeMount允许您在第一次呈现之前和之后立即访问组件。
         ```javascript
           new Vue({
             beforeMount: function () {
@@ -293,7 +293,7 @@ List of 300 VueJS Interview Questions
           })
         ```
         1. mounted:
-            This is a most used hook and you will have full access to the reactive component, templates, and rendered DOM (via. this.$el).  The most frequently used patterns are fetching data for your component.
+            这是一个最常用的钩子，您可以完全访问反应性组件、模板和呈现的DOM(通过this.$el)。最常用的模式是为组件获取数据。
         ```javascript
         <div id="app">
             <p>I’m text inside the component.</p>
@@ -305,10 +305,10 @@ List of 300 VueJS Interview Questions
             }
           })
         ```
-    3. **Updating (Diff & Re-render):**
-        Updating hooks are called whenever a reactive property used by your component changes, or something else causes it to re-render
+    3. **更新(Diff & Re-render):**
+        每当组件使用的响应性属性发生更改，或者其他原因导致它在更新之前重新呈现时，就会调用更新钩子:
         1. beforeUpdate:
-        The beforeUpdate hook runs after data changes on your component and the update cycle begins, right before the DOM is patched and re-rendered.
+        钩子在组件上的数据发生更改之后运行，更新周期开始之后，就在DOM被修补并重新呈现之前运行。
         ```javascript
         <div id="app">
           <p>{{counter}}</p>
@@ -333,7 +333,7 @@ List of 300 VueJS Interview Questions
           })
         ```
         1. updated:
-            This hook runs after data changes on your component and the DOM re-renders.
+           此钩子在组件上的数据更改和DOM重新呈现之后运行。
         ```javascript
         <div id="app">
           <p ref="dom">{{counter}}</p>
@@ -356,10 +356,10 @@ List of 300 VueJS Interview Questions
             }
           })
         ```
-    4. **Destruction (Teardown):**
-        Destruction hooks allow you to perform actions when your component is destroyed, such as cleanup or analytics sending.
+    4. **销毁 (Teardown):**
+        销毁钩子允许您在组件被销毁时执行操作，比如清理或分析发送。
         1. beforeDestroy:
-        `beforeDestroy` is fired right before teardown. If you need to cleanup events or reactive subscriptions, beforeDestroy would probably be the time to do it. Your component will still be fully present and functional.
+        `beforeDestroy` 在卸载之前被触发。如果您需要清理事件或响应订阅，那么beforeDestroy可能是进行清理的时候了。您的组件仍然是完整的、功能齐全的。
         ```javascript
         new Vue ({
           data() {
@@ -375,7 +375,7 @@ List of 300 VueJS Interview Questions
         })
         ```
         1. destroyed:
-        This hooks is called after your component has been destroyed, its directives have been unbound and its event listeners have been removed.
+        在组件被销毁、其指令被解除绑定以及其事件侦听器被删除之后，将调用此钩子。
         ```javascript
         new Vue ({
             destroyed: function() {
@@ -384,35 +384,33 @@ List of 300 VueJS Interview Questions
           })
         ```
 
-4.  ### What are the conditional directives?
-    VueJS provides set of directives to show or hide elements based on conditions. The available directives are: **v-if, v-else, v-else-if and v-show**
+4.  ### 什么是条件指令?
+    VueJS提供了一组指令，用于根据条件显示或隐藏元素。可用的指令有: **v-if, v-else, v-else-if and v-show**
     
-    **1. v-if:**  The v-if directive adds or removes DOM elements based on the given expression. For example, the below button will not show if isLoggedIn is set to false.
+    **1. v-if:**  v-if指令根据给定的表达式添加或删除DOM元素。例如，如果isLoggedIn是否设置为false,下面的按钮不会显示。
     ```javascript
     <button v-if="isLoggedIn">Logout</button>
     ```
-    You can also control multiple elements with a single v-if statement by wrapping all the elements in a `<template>` element with the condition. For example, you can have both label and button together conditionally applied,
+    您还可以使用一个v-if语句控制多个元素，方法是将所有元素包装在一个带有条件的"template"元素中。例如，可以有条件地同时应用标签和按钮，
     ```javascript
     <template v-if="isLoggedIn">
       <label> Logout </button>
       <button> Logout </button>
     </template>
     ```
-    **2. v-else:**  This directive is used to display content only when the expression adjacent v-if resolves to false. This is similar to else block in any programming language to display alternative content and it is preceded by v-if or v-else-if block. You don't need to pass any value to this.
-    For example, v-else is used to display LogIn button if isLoggedIn is set to false(not logged in).
+    **2. v-else:**  这个指令只在v-if附近的表达式解析为false时才显示内容。这类似于任何编程语言中的else块来显示替代内容，它的前面是v-if或v-else-if块。您不需要传递任何值给它。例如，如果isLoggedIn设置为false(未登录)，则使用v-else显示LogIn按钮。
     ```javascript
     <button v-if="isLoggedIn"> Logout </button>
     <button v-else> Log In </button>
     ```
-    **3. v-else-if:** This directive is used when we need more than two options to be checked.
-    For example, we want to display some text instead of LogIn button when ifLoginDisabled property is set to true. This can be achieved through v-else statement.
+    **3. v-else-if:** 当我们需要检查两个以上的选项时，使用这个指令。例如，当ifLoginDisabled属性被设置为true时，我们希望显示一些文本而不是LogIn按钮。这可以通过v-else语句来实现。
     ```javascript
     <button v-if="isLoggedIn"> Logout </button>
     <label v-else-if="isLoginDisabled"> User login disabled </label>
     <button v-else> Log In </button>
     ```
 
-    **4. v-show:** This directive is similar to v-if but it renders all elements to the DOM and then uses the CSS display property to show/hide elements. This directive is recommended if the elements are switched on and off frequently.
+    **4. v-show:** 这个指令类似于v-if，但它将所有元素呈现给DOM，然后使用CSS display属性显示/隐藏元素。如果频繁地开关这些元素，则建议使用此指令。这就要从性能方面说起，DOM不变的情况下，只是改动CSS属性往往是比重新生成DOM来得快。
     ```javascript
     <span v-show="user.name">Welcome user,{{user.name}}</span>
     ```
